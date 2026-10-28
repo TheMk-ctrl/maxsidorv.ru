@@ -110,6 +110,14 @@ html {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+a, button, [role="button"] {
+    outline: none;
+}
+a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--accent-color, #4f8ef7);
+    outline-offset: 2px;
 }
 
 body {
@@ -1794,23 +1802,32 @@ main > section:not(#hero) {
             color: var(--text-primary);
             line-height: 1.4;
         }
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
             .milestones {
+                flex-direction: column;
                 flex-wrap: nowrap;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-                scrollbar-width: none;
+                overflow-x: unset;
                 gap: 0;
-                padding-bottom: 8px;
+                padding-bottom: 0;
             }
-            .milestones::-webkit-scrollbar { display: none; }
             .milestone {
-                flex: 0 0 180px;
-                padding: 0 24px 0 0;
+                flex: none;
+                width: 100%;
+                padding: 16px 0;
+                border-bottom: 1px solid var(--border-color);
+                flex-direction: row;
+                align-items: baseline;
+                gap: 16px;
+            }
+            .milestone:last-child {
                 border-bottom: none;
             }
+            .milestone-year {
+                flex-shrink: 0;
+                min-width: 72px;
+            }
             .milestone:not(:last-child)::after {
-                display: block;
+                display: none;
             }
         }
     
@@ -2082,6 +2099,34 @@ main > section:not(#hero) {
                     <span class="tag">PostgreSQL</span>
                     <span class="tag">CryptoPay</span>
                     <span class="tag">Render</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ТандемСтрой — Корпоративный сайт (Frontend) -->
+        <div class="project-card" data-category="frontend">
+            <div class="project-details-left">
+                <div class="project-card-header">
+                    <span class="project-category" data-ru="FULLSTACK · КОММЕРЧЕСКИЙ" data-en="FULLSTACK · COMMERCIAL">FULLSTACK · КОММЕРЧЕСКИЙ</span>
+                </div>
+                <h3 class="project-title">ТандемСтрой — Корпоративный сайт</h3>
+                <p class="project-description"
+                   data-ru="Полноценный коммерческий проект для транспортной компании: лендинг с AI чат-ботом, FastAPI бэкенд, email-рассылки с батчингом, Telegram бот для управления, PostgreSQL база клиентов. Сдан заказчику."
+                   data-en="Full commercial project for a transport company: landing page with AI chatbot, FastAPI backend, batched email campaigns, Telegram management bot, PostgreSQL client database. Delivered to client.">
+                    Полноценный коммерческий проект для транспортной компании: лендинг с AI чат-ботом, FastAPI бэкенд, email-рассылки с батчингом, Telegram бот для управления, PostgreSQL база клиентов. Сдан заказчику.
+                </p>
+                <div class="project-tech-tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">FastAPI</span>
+                    <span class="tag">PostgreSQL</span>
+                    <span class="tag">Telegram Bot API</span>
+                    <span class="tag">Resend API</span>
+                    <span class="tag">OpenRouter AI</span>
+                    <span class="tag">GitHub Pages</span>
+                    <span class="tag">Amvera</span>
+                </div>
+                <div class="project-actions">
+                    <a href="https://tandemstroy-vrn.ru" target="_blank" class="resume-download-btn" data-ru="Открыть сайт" data-en="Open Site">Открыть сайт</a>
                 </div>
             </div>
         </div>
