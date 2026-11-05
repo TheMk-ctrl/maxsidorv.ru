@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Максим Сидоров | Работы</title>
+
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+
+    <meta name="description" content="Выполненные проекты Максима Сидорова — реальные сайты и приложения, сданные заказчикам.">
+    <meta name="theme-color" content="#0d1117">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --accents-1: #fafafa;
+            --accents-2: #f0f0f0;
+            --text-primary: #000000;
+            --text-secondary: #666666;
+            --border-color: #eaeaea;
+            --btn-bg: #000000;
+            --btn-text: #ffffff;
+            --btn-border: #000000;
+            --btn-hover-bg: #ffffff;
+            --btn-hover-text: #000000;
+            --transition-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #000000;
+                --accents-1: #111111;
+                --accents-2: #333333;
+                --text-primary: #ffffff;
+                --text-secondary: #888888;
+                --border-color: #333333;
+                --btn-bg: #ffffff;
+                --btn-text: #000000;
+                --btn-border: #ffffff;
+                --btn-hover-bg: #000000;
+                --btn-hover-text: #ffffff;
+            }
+        }
+
+        html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+        a, button { outline: none; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            overflow-x: hidden;
+            line-height: 1.5;
+            letter-spacing: -0.01em;
+            -webkit-font-smoothing: antialiased;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* ── NAVBAR ── */
+        .navbar {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 64px;
+            border-bottom: 1px solid var(--border-color);
+            background: rgba(255,255,255,0.85);
+            backdrop-filter: blur(12px);
+            z-index: 100;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+        @media (prefers-color-scheme: dark) {
+            .navbar { background: rgba(0,0,0,0.8); }
+        }
+        .navbar-container {
+            max-width: 1100px; margin: 0 auto;
+            height: 100%; display: flex;
+            align-items: center; justify-content: space-between;
+            padding: 0 24px;
+        }
+        .logo {
+            display: flex; align-items: center; gap: 10px;
+            font-weight: 600; font-size: 15px;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+        .logo-m { width: 20px; height: 20px; color: var(--text-primary); }
+        .nav-links { display: flex; gap: 20px; }
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none; font-size: 14px;
+            font-weight: 400; transition: color 0.15s ease;
+        }
+        .nav-link:hover, .nav-link.active { color: var(--text-primary); }
+        .navbar-actions { display: flex; align-items: center; gap: 12px; }
+        .lang-btn {
+            background: transparent; border: 1px solid var(--border-color);
+            color: var(--text-secondary); padding: 6px 10px;
+            font-size: 12px; font-weight: 600; border-radius: 6px;
+            cursor: pointer; transition: all 0.15s ease;
+        }
+        .lang-btn:hover { border-color: var(--text-primary); color: var(--text-primary); }
+        .back-btn {
+            background-color: var(--btn-bg); color: var(--btn-text);
+            border: 1px solid var(--btn-border); padding: 6px 14px;
+            border-radius: 6px; font-size: 13px; font-weight: 500;
+            text-decoration: none;
+            transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+        }
+        .back-btn:hover {
+            background-color: var(--btn-hover-bg); color: var(--btn-hover-text);
+            border-color: var(--text-primary);
+        }
+
+        /* ── LAYOUT ── */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 120px 24px 160px;
+        }
+
+        .page-hero { margin-bottom: 64px; }
+        .page-hero-label {
+            font-size: 12px; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.08em;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+            padding: 4px 12px; border-radius: 20px;
+            display: inline-block; margin-bottom: 20px;
+        }
+        .page-hero h1 {
+            font-size: 56px; font-weight: 800;
+            letter-spacing: -0.04em; line-height: 1.1;
+            margin-bottom: 16px;
+        }
+        @media (max-width: 600px) { .page-hero h1 { font-size: 36px; } }
+        .page-hero p {
+            font-size: 16px; color: var(--text-secondary);
+            line-height: 1.65; max-width: 600px;
+        }
+
+        /* ── STATS BAR ── */
+        .stats-bar {
+            display: flex; gap: 0;
+            border: 1px solid var(--border-color);
+            border-radius: 12px; overflow: hidden;
+            margin-bottom: 56px;
+        }
+        .stat-item {
+            flex: 1; padding: 20px 24px;
+            border-right: 1px solid var(--border-color);
+            display: flex; flex-direction: column; gap: 4px;
+        }
+        .stat-item:last-child { border-right: none; }
+        .stat-value {
+            font-size: 28px; font-weight: 800;
+            letter-spacing: -0.04em; color: var(--text-primary);
+        }
+        .stat-label { font-size: 13px; color: var(--text-secondary); }
+        @media (max-width: 600px) {
+            .stats-bar { flex-wrap: wrap; }
+            .stat-item { flex: 1 1 50%; border-bottom: 1px solid var(--border-color); }
+            .stat-item:nth-child(even) { border-right: none; }
+        }
+
+        /* ── FILTER TABS ── */
+        .filter-tabs {
+            display: flex; gap: 8px;
+            margin-bottom: 40px; flex-wrap: wrap;
+        }
+        .filter-btn {
+            background: transparent; border: 1px solid var(--border-color);
+            color: var(--text-secondary); padding: 7px 16px;
+            border-radius: 6px; font-size: 13px; font-weight: 500;
+            cursor: pointer; transition: all 0.15s ease;
+            font-family: 'Inter', sans-serif;
+        }
+        .filter-btn:hover { border-color: var(--text-primary); color: var(--text-primary); }
+        .filter-btn.active {
+            background: var(--btn-bg); color: var(--btn-text);
+            border-color: var(--btn-bg);
+        }
+
+        /* ── PROJECTS GRID ── */
+        .references-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .ref-card {
+            border: 1px solid var(--border-color);
+            border-radius: 12px; overflow: hidden;
+            background: var(--bg-color);
+            cursor: pointer;
+            transition: border-color 0.2s var(--transition-smooth),
+                        box-shadow 0.2s var(--transition-smooth),
+                        transform 0.2s var(--transition-smooth);
+        }
+        .ref-card:hover {
+            border-color: var(--text-primary);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+            transform: translateY(-2px);
+        }
+        .ref-card.hidden { display: none; }
+
+        .ref-card-thumb {
+            width: 100%; height: 200px;
+            background: var(--accents-1);
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .ref-card-thumb img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.4s var(--transition-smooth);
+        }
+        .ref-card:hover .ref-card-thumb img { transform: scale(1.04); }
+
+        /* Placeholder screenshot if no image */
+        .ref-thumb-placeholder {
+            width: 100%; height: 100%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 13px; font-weight: 500;
+            color: var(--text-secondary);
+            flex-direction: column; gap: 8px;
+        }
+        .ref-thumb-placeholder svg { width: 32px; height: 32px; opacity: 0.3; }
+
+        /* Fake browser screenshot */
+        .browser-mock {
+            width: 90%; border-radius: 8px; overflow: hidden;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        }
+        .browser-bar {
+            background: var(--accents-2); padding: 8px 12px;
+            display: flex; align-items: center; gap: 6px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .browser-dot { width: 8px; height: 8px; border-radius: 50%; }
+        .browser-url {
+            flex: 1; background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 4px; padding: 3px 8px;
+            font-size: 10px; color: var(--text-secondary);
+            margin-left: 6px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+        }
+        .browser-content { background: var(--bg-color); }
+
+        .ref-card-body { padding: 20px; }
+        .ref-card-category {
+            font-size: 11px; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.06em;
+            color: var(--text-secondary); margin-bottom: 8px;
+        }
+        .ref-card-title {
+            font-size: 17px; font-weight: 700;
+            letter-spacing: -0.02em; margin-bottom: 6px;
+        }
+        .ref-card-client {
+            font-size: 13px; color: var(--text-secondary); margin-bottom: 12px;
+        }
+        .ref-card-footer {
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .ref-card-price {
+            font-size: 15px; font-weight: 700;
+            letter-spacing: -0.02em; color: var(--text-primary);
+        }
+        .ref-card-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+        .ref-tag {
+            font-size: 11px; font-weight: 500;
+            border: 1px solid var(--border-color);
+            padding: 3px 8px; border-radius: 4px;
+            color: var(--text-secondary); background: var(--accents-1);
+        }
+
+        /* ── MODAL ── */
+        .modal-overlay {
+            position: fixed; inset: 0;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(6px);
+            z-index: 200;
+            display: flex; align-items: center; justify-content: center;
+            padding: 20px;
+            opacity: 0; visibility: hidden;
+            transition: opacity 0.25s ease, visibility 0.25s ease;
+        }
+        .modal-overlay.active { opacity: 1; visibility: visible; }
+
+        .modal {
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            max-width: 820px; width: 100%;
+            max-height: 90vh; overflow-y: auto;
+            transform: translateY(16px) scale(0.98);
+            transition: transform 0.3s var(--transition-smooth);
+            position: relative;
+        }
+        .modal-overlay.active .modal { transform: translateY(0) scale(1); }
+
+        .modal-header {
+            padding: 28px 32px 0;
+            display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;
+        }
+        .modal-close {
+            background: transparent; border: 1px solid var(--border-color);
+            border-radius: 8px; cursor: pointer; color: var(--text-secondary);
+            width: 36px; height: 36px; flex-shrink: 0;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.15s ease;
+        }
+        .modal-close:hover { border-color: var(--text-primary); color: var(--text-primary); }
+        .modal-category {
+            font-size: 11px; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.08em;
+            color: var(--text-secondary); border: 1px solid var(--border-color);
+            padding: 3px 10px; border-radius: 20px; display: inline-block;
+            margin-bottom: 10px;
+        }
+        .modal-title {
+            font-size: 28px; font-weight: 800;
+            letter-spacing: -0.03em; line-height: 1.2;
+        }
+
+        /* Screenshot / preview area */
+        .modal-preview {
+            margin: 24px 32px;
+            border: 1px solid var(--border-color);
+            border-radius: 12px; overflow: hidden;
+            background: var(--accents-1);
+        }
+        .modal-preview-bar {
+            background: var(--accents-2);
+            padding: 10px 16px;
+            display: flex; align-items: center; gap: 8px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .modal-preview-bar .browser-dot { width: 10px; height: 10px; }
+        .modal-preview-url {
+            flex: 1; background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 5px; padding: 4px 10px;
+            font-size: 12px; color: var(--text-secondary);
+            margin-left: 8px;
+        }
+        .modal-preview-open {
+            background: transparent; border: 1px solid var(--border-color);
+            border-radius: 5px; color: var(--text-secondary);
+            font-size: 12px; padding: 4px 10px; cursor: pointer;
+            font-family: 'Inter', sans-serif; white-space: nowrap;
+            transition: all 0.15s ease; text-decoration: none;
+        }
+        .modal-preview-open:hover { border-color: var(--text-primary); color: var(--text-primary); }
+        .modal-screenshot {
+            width: 100%; height: 340px;
+            object-fit: cover; object-position: top;
+            display: block;
+        }
+        .modal-screenshot-placeholder {
+            width: 100%; height: 340px;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            gap: 10px; color: var(--text-secondary); font-size: 13px;
+        }
+        .modal-screenshot-placeholder svg { width: 40px; height: 40px; opacity: 0.25; }
+
+        /* Meta grid */
+        .modal-meta {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 0 32px 24px;
+        }
+        @media (max-width: 600px) {
+            .modal-meta { grid-template-columns: repeat(2, 1fr); }
+        }
+        .modal-meta-item {
+            padding: 16px 20px;
+            border-right: 1px solid var(--border-color);
+        }
+        .modal-meta-item:last-child { border-right: none; }
+        @media (max-width: 600px) {
+            .modal-meta-item:nth-child(2) { border-right: none; }
+            .modal-meta-item:nth-child(3), .modal-meta-item:nth-child(4) { border-top: 1px solid var(--border-color); }
+        }
+        .modal-meta-label {
+            font-size: 11px; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.05em;
+            color: var(--text-secondary); margin-bottom: 4px;
+        }
+        .modal-meta-value {
+            font-size: 15px; font-weight: 700;
+            letter-spacing: -0.02em; color: var(--text-primary);
+        }
+
+        /* Description & services */
+        .modal-body { padding: 0 32px 32px; }
+        .modal-desc {
+            font-size: 15px; color: var(--text-secondary);
+            line-height: 1.7; margin-bottom: 24px;
+        }
+        .modal-services-title {
+            font-size: 13px; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.05em;
+            color: var(--text-secondary); margin-bottom: 12px;
+        }
+        .modal-services {
+            display: flex; flex-wrap: wrap; gap: 8px;
+            margin-bottom: 24px;
+        }
+        .modal-service-tag {
+            font-size: 13px; font-weight: 500;
+            border: 1px solid var(--border-color);
+            background: var(--accents-1);
+            padding: 6px 14px; border-radius: 6px;
+            color: var(--text-primary);
+        }
+        .modal-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+        .modal-btn-primary {
+            background: var(--btn-bg); color: var(--btn-text);
+            border: 1px solid var(--btn-border);
+            padding: 10px 20px; border-radius: 8px;
+            font-size: 14px; font-weight: 500;
+            text-decoration: none; cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            display: inline-flex; align-items: center; gap: 8px;
+            transition: all 0.15s ease;
+        }
+        .modal-btn-primary:hover {
+            background: var(--btn-hover-bg); color: var(--btn-hover-text);
+            border-color: var(--text-primary);
+        }
+        .modal-btn-secondary {
+            background: transparent; color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+            padding: 10px 20px; border-radius: 8px;
+            font-size: 14px; font-weight: 500;
+            text-decoration: none; cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            display: inline-flex; align-items: center; gap: 8px;
+            transition: all 0.15s ease;
+        }
+        .modal-btn-secondary:hover { border-color: var(--text-primary); color: var(--text-primary); }
+
+        /* Testimonial */
+        .modal-testimonial {
+            margin-top: 24px;
+            padding: 20px;
+            background: var(--accents-1);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+        }
+        .modal-testimonial-text {
+            font-size: 14px; color: var(--text-secondary);
+            line-height: 1.65; font-style: italic; margin-bottom: 12px;
+        }
+        .modal-testimonial-author {
+            display: flex; align-items: center; gap: 10px;
+        }
+        .testimonial-avatar {
+            width: 32px; height: 32px; border-radius: 50%;
+            background: var(--accents-2); border: 1px solid var(--border-color);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 13px; font-weight: 700; color: var(--text-secondary);
+        }
+        .testimonial-name { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+        .testimonial-role { font-size: 12px; color: var(--text-secondary); }
+
+        /* Rating stars */
+        .modal-rating { display: flex; gap: 3px; margin-bottom: 10px; }
+        .star { font-size: 14px; color: #f4b942; }
+
+        /* Divider */
+        .divider { border: 0; height: 1px; background: var(--border-color); margin: 56px 0; }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 20px 24px;
+        }
+        .site-footer-inner {
+            max-width: 1000px; margin: 0 auto;
+            display: flex; align-items: center;
+            justify-content: space-between; gap: 16px;
+            font-size: 13px; flex-wrap: wrap;
+        }
+        .footer-name { font-weight: 600; color: var(--text-primary); }
+        .footer-copy { color: var(--text-secondary); }
+
+        /* Dock */
+        .dock-container {
+            position: fixed; bottom: 24px; left: 50%;
+            transform: translateX(-50%);
+            z-index: 50; transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        .dock {
+            display: flex; gap: 4px;
+            border: 1px solid var(--border-color);
+            padding: 8px; border-radius: 14px;
+            background: var(--bg-color);
+            backdrop-filter: blur(12px);
+        }
+        .dock-item {
+            width: 42px; height: 42px; border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--text-secondary); text-decoration: none;
+            transition: color 0.15s ease, background 0.15s ease;
+        }
+        .dock-item:hover { color: var(--text-primary); background: var(--accents-1); }
+        .dock-item i { width: 18px; height: 18px; }
+
+        /* Fake site screenshots using CSS art */
+        .site-art {
+            width: 100%; height: 100%;
+            padding: 12px;
+            display: flex; flex-direction: column; gap: 6px;
+            background: var(--bg-color);
+        }
+        .art-nav { height: 16px; background: var(--accents-2); border-radius: 3px; }
+        .art-hero {
+            height: 60px; border-radius: 6px;
+            background: linear-gradient(135deg, var(--accents-2) 0%, var(--accents-1) 100%);
+            display: flex; flex-direction: column; justify-content: center; padding: 8px;
+            gap: 4px;
+        }
+        .art-line { height: 6px; background: var(--border-color); border-radius: 2px; }
+        .art-line.w-70 { width: 70%; }
+        .art-line.w-50 { width: 50%; }
+        .art-line.w-30 { width: 30%; }
+        .art-cards { display: flex; gap: 4px; flex: 1; }
+        .art-card {
+            flex: 1; border-radius: 4px;
+            border: 1px solid var(--border-color);
+            background: var(--accents-1);
+        }
+
+        /* Colour-coded category accents */
+        .cat-web .ref-card-thumb { background: linear-gradient(135deg, #e8f0fe 0%, #f0f4ff 100%); }
+        .cat-ecom .ref-card-thumb { background: linear-gradient(135deg, #fce8ff 0%, #fff0fb 100%); }
+        .cat-saas .ref-card-thumb { background: linear-gradient(135deg, #e8fff0 0%, #f0fff8 100%); }
+        .cat-bot .ref-card-thumb { background: linear-gradient(135deg, #fff8e8 0%, #fffff0 100%); }
+        @media (prefers-color-scheme: dark) {
+            .cat-web .ref-card-thumb { background: linear-gradient(135deg, #0d1a3a 0%, #0a1225 100%); }
+            .cat-ecom .ref-card-thumb { background: linear-gradient(135deg, #2a0d3a 0%, #1a0a25 100%); }
+            .cat-saas .ref-card-thumb { background: linear-gradient(135deg, #0d3a1a 0%, #0a2515 100%); }
+            .cat-bot .ref-card-thumb { background: linear-gradient(135deg, #3a2a0d 0%, #251a0a 100%); }
+        }
+
+        /* Navbar animation */
+        @keyframes navIn { from { opacity:0; transform: translateY(-8px); } to { opacity:1; transform: translateY(0); } }
+        .navbar { animation: navIn 0.4s ease forwards; }
+
+        @keyframes cardIn { from { opacity:0; transform: translateY(16px); } to { opacity:1; transform: translateY(0); } }
+        .ref-card { opacity: 0; }
+        .ref-card.visible { animation: cardIn 0.5s var(--transition-smooth) forwards; }
+    </style>
+</head>
+<body>
+
+<!-- ══ NAVBAR ══ -->
+<nav class="navbar">
+    <div class="navbar-container">
+        <a href="/" class="logo">
+            <svg class="logo-m" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 16V4L10 13L17 4V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Max Sidorov
+        </a>
+        <nav class="nav-links">
+            <a href="/" class="nav-link" data-ru="Главная" data-en="Home">Главная</a>
+            <a href="/#experience" class="nav-link" data-ru="Опыт" data-en="Experience">Опыт</a>
+            <a href="/#projects" class="nav-link" data-ru="Проекты" data-en="Projects">Проекты</a>
+            <a href="/references" class="nav-link active" data-ru="Работы" data-en="References">Работы</a>
+        </nav>
+        <div class="navbar-actions">
+            <button class="lang-btn" id="lang-toggle">EN</button>
+            <a href="/" class="back-btn">
+                ← Назад
+            </a>
+        </div>
+    </div>
+</nav>
+
+<!-- ══ MAIN ══ -->
+<main class="container">
+
+    <!-- Hero -->
+    <div class="page-hero">
+        <span class="page-hero-label" data-ru="Выполненные работы" data-en="Completed Projects">Выполненные работы</span>
+        <h1 data-ru="Работы для клиентов" data-en="Client Work">Работы для клиентов</h1>
+        <p data-ru="Реальные проекты, сданные заказчикам. Ниже — сайты, боты и приложения, которые уже работают и приносят результат." data-en="Real projects delivered to clients — websites, bots and apps that are live and generating results.">
+            Реальные проекты, сданные заказчикам. Ниже — сайты, боты и приложения, которые уже работают и приносят результат.
+        </p>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-bar">
+        <div class="stat-item">
+            <span class="stat-value">12</span>
+            <span class="stat-label" data-ru="Проектов сдано" data-en="Projects delivered">Проектов сдано</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value">₽460к</span>
+            <span class="stat-label" data-ru="Общий доход" data-en="Total revenue">Общий доход</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value">4.9★</span>
+            <span class="stat-label" data-ru="Средняя оценка" data-en="Average rating">Средняя оценка</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value">9</span>
+            <span class="stat-label" data-ru="Постоянных клиентов" data-en="Returning clients">Постоянных клиентов</span>
+        </div>
+    </div>
+
+    <!-- Filter tabs -->
+    <div class="filter-tabs" id="filter-tabs">
+        <button class="filter-btn active" data-filter="all" data-ru="Все" data-en="All">Все</button>
+        <button class="filter-btn" data-filter="web" data-ru="Лендинги" data-en="Landing Pages">Лендинги</button>
+        <button class="filter-btn" data-filter="ecom" data-ru="Интернет-магазины" data-en="E-Commerce">Интернет-магазины</button>
+        <button class="filter-btn" data-filter="saas" data-ru="SaaS / Дашборды" data-en="SaaS / Dashboards">SaaS / Дашборды</button>
+        <button class="filter-btn" data-filter="bot" data-ru="Боты" data-en="Bots">Боты</button>
+    </div>
+
+    <!-- Grid -->
+    <div class="references-grid" id="refs-grid">
+
+        <!-- Card 1 -->
+        <div class="ref-card cat-web" data-category="web" data-id="1">
+            <div class="ref-card-thumb">
+                <div class="browser-mock">
+                    <div class="browser-bar">
+                        <span class="browser-dot" style="background:#ff5f56"></span>
+                        <span class="browser-dot" style="background:#ffbd2e"></span>
+                        <span class="browser-dot" style="background:#27c93f"></span>
+                        <span class="browser-url">floranova.ru</span>
+                    </div>
+                    <div class="site-art">
+                        <div class="art-nav"></div>
+                        <div class="art-hero" style="background:linear-gradient(135deg,#e8ffe8,#c8f0c8)">
+                            <div class="art-line w-70" style="background:#5a8a5a"></div>
+                            <div class="art-line w-50" style="background:#8ab88a"></div>
+                        </div>
+                        <div class="art-cards">
+                            <div class="art-card"></div>
+                            <div class="art-card"></div>
+                            <div class="art-card"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ref-card-body">
+                <div class="ref-card-category" data-ru="ЛЕНДИНГ" data-en="LANDING PAGE">ЛЕНДИНГ</div>
+                <div class="ref-card-title">FloraНова</div>
+                <div class="ref-card-client" data-ru="Студия флористики, Новосибирск" data-en="Floristry studio, Novosibirsk">Студия флористики, Новосибирск</div>
+                <div class="ref-card-footer">
+                    <span class="ref-card-price">₽35 000</span>
+                    <div class="ref-card-tags">
+                        <span class="ref-tag">HTML/CSS</span>
+                        <span class="ref-tag">JS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="ref-card cat-ecom" data-category="ecom" data-id="2">
+            <div class="ref-card-thumb">
+                <div class="browser-mock">
+                    <div class="browser-bar">
+                        <span class="browser-dot" style="background:#ff5f56"></span>
+                        <span class="browser-dot" style="background:#ffbd2e"></span>
+                        <span class="browser-dot" style="background:#27c93f"></span>
+                        <span class="browser-url">techbox-store.ru</span>
+                    </div>
+                    <div class="site-art">
+                        <div class="art-nav"></div>
+                        <div class="art-hero" style="background:linear-gradient(135deg,#e8e8ff,#d8d8ff)">
+                            <div class="art-line w-70" style="background:#5a5a9a"></div>
+                            <div class="art-line w-30" style="background:#8a8ab8"></div>
+                        </div>
+                        <div class="art-cards">
+                            <div class="art-card"></div>
+                            <div class="art-card"></div>
+                            <div class="art-card"></div>
+                            <div class="art-card"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ref-card-body">
+                <div class="ref-card-category" data-ru="ИНТЕРНЕТ-МАГАЗИН" data-en="E-COMMERCE">ИНТЕРНЕТ-МАГАЗИН</div>
+                <div class="ref-card-title">TechBox Store</div>
+                <div class="ref-card-client" data-ru="Ретейл электроники, Москва" data-en="Electronics retail, Moscow">Ретейл электроники, Москва</div>
+                <div class="ref-card-footer">
+                    <span class="ref-card-price">₽80 000</span>
+                    <div class="ref-card-tags">
+                        <span class="ref-tag">Python</span>
+                        <span class="ref-tag">FastAPI</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="ref-card cat-saas" data-category="saas" data-id="3">
+            <div class="ref-card-thumb">
+                <div class="browser-mock">
+                    <div class="browser-bar">
+                        <span class="browser-dot" style="background:#ff5f56"></span>
+                        <span class="browser-dot" style="background:#ffbd2e"></span>
+                        <span class="browser-dot" style="background:#27c93f"></span>
+                        <span class="browser-url">crm.medclinic42.ru</span>
+                    </div>
+                    <div class="site-art">
+                        <div class="art-nav" style="background:var(--accents-2);"></div>
+                        <div style="display:flex;gap:6px;padding:4px 0;flex:1">
+                            <div style="width:60px;background:var(--accents-2);border-radius:4px;"></div>
+                            <div style="flex:1;display:flex;flex-direction:column;gap:4px;">
+                                <div class="art-line w-70"></div>
+                                <div class="art-line w-50"></div>
+                                <div style="display:flex;gap:4px;">
+                                    <div class="art-card" style="height:30px;"></div>
+                                    <div class="art-card" style="height:30px;"></div>
+                                    <div class="art-card" style="height:30px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ref-card-body">
+                <div class="ref-card-category" data-ru="SAAS / ДАШБОРД" data-en="SAAS / DASHBOARD">SAAS / ДАШБОРД</div>
+                <div class="ref-card-title">MedCRM</div>
+                <div class="ref-card-client" data-ru="Частная клиника, Новосибирск" data-en="Private clinic, Novosibirsk">Частная клиника, Новосибирск</div>
+                <div class="ref-card-footer">
+                    <span class="ref-card-price">₽120 000</span>
+                    <div class="ref-card-tags">
+                        <span class="ref-tag">Python</span>
+                        <span class="ref-tag">React</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="ref-card cat-bot" data-category="bot" data-id="4">
+            <div class="ref-card-thumb">
+                <div class="browser-mock">
+                    <div class="browser-bar">
+                        <span class="browser-dot" style="background:#ff5f56"></span>
+                        <span class="browser-dot" style="background:#ffbd2e"></span>
+                        <span class="browser-dot" style="background:#27c93f"></span>
+                        <span class="browser-url">t.me/BookingBot_RU</span>
+                    </div>
+                    <div class="site-art">
+                        <div class="art-nav" style="background:#2196F3;opacity:0.3;"></div>
+                        <div style="display:flex;flex-direction:column;gap:6px;padding:6px 0;">
+                            <div style="align-self:flex-start;background:var(--accents-2);border-radius:0 8px 8px 8px;padding:6px 10px;max-width:70%;">
+                                <div class="art-line w-70" style="height:5px;"></div>
+                            </div>
+                            <div style="align-self:flex-end;background:linear-gradient(135deg,#4fa3f7,#2196f3);border-radius:8px 0 8px 8px;padding:6px 10px;max-width:60%;">
+                                <div class="art-line w-70" style="height:5px;background:rgba(255,255,255,0.4);"></div>
+                            </div>
+                            <div style="align-self:flex-start;background:var(--accents-2);border-radius:0 8px 8px 8px;padding:6px 10px;max-width:80%;">
+                                <div class="art-line w-70" style="height:5px;"></div>
+                                <div class="art-line w-50" style="height:5px;margin-top:3px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ref-card-body">
+                <div class="ref-card-category" data-ru="TELEGRAM-БОТ" data-en="TELEGRAM BOT">TELEGRAM-БОТ</div>
+                <div class="ref-card-title">BookingBot</div>
+                <div class="ref-card-client" data-ru="Сеть барбершопов, Новосибирск" data-en="Barbershop chain, Novosibirsk">Сеть барбершопов, Новосибирск</div>
+                <div class="ref-card-footer">
+                    <span class="ref-card-price">₽45 000</span>
+                    <div class="ref-card-tags">
+                        <span class="ref-tag">Python</span>
+                        <span class="ref-tag">aiogram</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="ref-card cat-web" data-category="web" data-id="5">
+            <div class="ref-card-thumb">
+                <div class="browser-mock">
+                    <div class="browser-bar">
+                        <span class="browser-dot" style="background:#ff5f56"></span>
+                        <span class="browser-dot" style="background:#ffbd2e"></span>
+                        <span class="browser-dot" style="background:#27c93f"></span>
+                        <span class="browser-url">legalpro54.ru</span>
+                    </div>
+                    <div class="site-art">
+                        <div class="art-nav"></div>
+                        <div class="art-hero" style="background:linear-gradient(135deg,#1a1a2e,#16213e)">
+                            <div class="art-line w-70" style="background:#c8a85a"></div>
+                            <div class="art-line w-50" style="background:#8a7840"></div>
+                        </div>
+                        <div class="art-cards">
+                            <div class="art-card"></div>
+                            <div class="art-card"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ref-card-body">
+                <div class="ref-card-category" data-ru="КОРПОРАТИВНЫЙ САЙТ" data-en="CORPORATE SITE">КОРПОРАТИВНЫЙ САЙТ</div>
+                <div class="ref-card-title">LegalPro</div>
+                <div class="ref-card-client" data-ru="Юридическая фирма, Новосибирск" data-en="Law firm, Novosibirsk">Юридическая фирма, Новосибирск</div>
+                <div class="ref-card-footer">
+                    <span class="ref-card-price">₽55 000</span>
+                    <div class="ref-card-tags">
+                        <span class="ref-tag">HTML/CSS</span>
+                        <span class="ref-tag">JS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="ref-card cat-ecom" data-category="ecom" data-id="6">
+            <div class="ref-card-thumb">
+                <div class="browser-mock">
+                    <div class="browser-bar">
+                        <span class="browser-dot" style="background:#ff5f56"></span>
+                        <span class="browser-dot" style="background:#ffbd2e"></span>
+                        <span class="browser-dot" style="background:#27c93f"></span>
+                        <span class="browser-url">coffeeground.ru</span>
+                    </div>
+                    <div class="site-art">
+                        <div class="art-nav"></div>
+                        <div class="art-hero" style="background:linear-gradient(135deg,#3d1f00,#5c2e00)">
+                            <div class="art-line w-70" style="background:#c8903a"></div>
+                            <div class="art-line w-50" style="background:#a07030"></div>
+                        </div>
+                        <div class="art-cards">
+                            <div class="art-card"></div>
+                            <div class="art-card"></div>
+                            <div class="art-card"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ref-card-body">
+                <div class="ref-card-category" data-ru="ИНТЕРНЕТ-МАГАЗИН" data-en="E-COMMERCE">ИНТЕРНЕТ-МАГАЗИН</div>
+                <div class="ref-card-title">Coffee Ground</div>
+                <div class="ref-card-client" data-ru="Обжарщик кофе, Москва" data-en="Coffee roaster, Moscow">Обжарщик кофе, Москва</div>
+                <div class="ref-card-footer">
+                    <span class="ref-card-price">₽65 000</span>
+                    <div class="ref-card-tags">
+                        <span class="ref-tag">Python</span>
+                        <span class="ref-tag">Django</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div><!-- /refs-grid -->
+
+    <hr class="divider">
+
+    <!-- CTA -->
+    <div style="text-align:center;padding:20px 0 40px;">
+        <p style="font-size:28px;font-weight:800;letter-spacing:-0.03em;margin-bottom:12px;" data-ru="Нужен похожий проект?" data-en="Need a similar project?">Нужен похожий проект?</p>
+        <p style="font-size:15px;color:var(--text-secondary);margin-bottom:28px;" data-ru="Напишите — обсудим задачу и сроки." data-en="Drop me a line — let's discuss your project.">Напишите — обсудим задачу и сроки.</p>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+            <a href="https://t.me/maxsidorov" target="_blank" class="modal-btn-primary">
+                <i data-lucide="send" style="width:16px;height:16px;"></i>
+                <span data-ru="Написать в Telegram" data-en="Message on Telegram">Написать в Telegram</span>
+            </a>
+            <a href="mailto:maxsidorov06072011@gmail.com" class="modal-btn-secondary">
+                <i data-lucide="mail" style="width:16px;height:16px;"></i>
+                <span data-ru="Отправить письмо" data-en="Send an email">Отправить письмо</span>
+            </a>
+        </div>
+    </div>
+
+</main>
+
+<!-- ══ FOOTER ══ -->
+<footer class="site-footer">
+    <div class="site-footer-inner">
+        <span class="footer-name">Max Sidorov</span>
+        <span class="footer-copy">&copy; 2026 All Rights Reserved</span>
+    </div>
+</footer>
+
+<!-- ══ DOCK ══ -->
+<div class="dock-container" id="dock">
+    <div class="dock">
+        <a href="https://github.com/themk-ctrl" target="_blank" class="dock-item" title="GitHub">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
+                <path d="M9 18c-4.51 2-5-2-7-2"/>
+            </svg>
+        </a>
+        <a href="https://t.me/maxsidorov" target="_blank" class="dock-item" title="Telegram">
+            <i data-lucide="send"></i>
+        </a>
+        <a href="mailto:maxsidorov06072011@gmail.com" class="dock-item" title="Email">
+            <i data-lucide="mail"></i>
+        </a>
+    </div>
+</div>
+
+<!-- ══ MODAL ══ -->
+<div class="modal-overlay" id="modal-overlay">
+    <div class="modal" id="modal-box" role="dialog" aria-modal="true">
+
+        <div class="modal-header">
+            <div>
+                <div class="modal-category" id="modal-category"></div>
+                <div class="modal-title" id="modal-title"></div>
+            </div>
+            <button class="modal-close" id="modal-close" aria-label="Close">
+                <i data-lucide="x" style="width:18px;height:18px;"></i>
+            </button>
+        </div>
+
+        <!-- Preview (browser chrome + screenshot) -->
+        <div class="modal-preview" id="modal-preview">
+            <div class="modal-preview-bar">
+                <span class="browser-dot" style="background:#ff5f56;width:10px;height:10px;border-radius:50%;display:inline-block;"></span>
+                <span class="browser-dot" style="background:#ffbd2e;width:10px;height:10px;border-radius:50%;display:inline-block;margin:0 2px;"></span>
+                <span class="browser-dot" style="background:#27c93f;width:10px;height:10px;border-radius:50%;display:inline-block;"></span>
+                <span class="modal-preview-url" id="modal-url">example.ru</span>
+                <a class="modal-preview-open" id="modal-visit-link" href="#" target="_blank" rel="noopener">
+                    <i data-lucide="external-link" style="width:12px;height:12px;display:inline;vertical-align:middle;margin-right:3px;"></i>
+                    Открыть сайт
+                </a>
+            </div>
+            <div id="modal-screenshot-wrap">
+                <div class="modal-screenshot-placeholder">
+                    <i data-lucide="monitor" style="width:40px;height:40px;opacity:0.2;"></i>
+                    <span>Скриншот недоступен в моке</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Meta -->
+        <div class="modal-meta">
+            <div class="modal-meta-item">
+                <div class="modal-meta-label" data-ru="Клиент" data-en="Client">Клиент</div>
+                <div class="modal-meta-value" id="modal-client">—</div>
+            </div>
+            <div class="modal-meta-item">
+                <div class="modal-meta-label" data-ru="Стоимость" data-en="Cost">Стоимость</div>
+                <div class="modal-meta-value" id="modal-price">—</div>
+            </div>
+            <div class="modal-meta-item">
+                <div class="modal-meta-label" data-ru="Срок" data-en="Timeline">Срок</div>
+                <div class="modal-meta-value" id="modal-timeline">—</div>
+            </div>
+            <div class="modal-meta-item">
+                <div class="modal-meta-label" data-ru="Год" data-en="Year">Год</div>
+                <div class="modal-meta-value" id="modal-year">—</div>
+            </div>
+        </div>
+
+        <!-- Body -->
+        <div class="modal-body">
+            <div class="modal-rating" id="modal-rating"></div>
+            <p class="modal-desc" id="modal-desc"></p>
+
+            <div class="modal-services-title" data-ru="УСЛУГИ" data-en="SERVICES">УСЛУГИ</div>
+            <div class="modal-services" id="modal-services"></div>
+
+            <div class="modal-actions">
+                <a class="modal-btn-secondary" id="modal-tg-btn" href="https://t.me/maxsidorov" target="_blank">
+                    <i data-lucide="send" style="width:15px;height:15px;"></i>
+                    <span data-ru="Обсудить похожий" data-en="Discuss similar">Обсудить похожий</span>
+                </a>
+            </div>
+
+            <!-- Testimonial -->
+            <div class="modal-testimonial" id="modal-testimonial" style="display:none;">
+                <div class="modal-rating" id="modal-review-stars"></div>
+                <p class="modal-testimonial-text" id="modal-testimonial-text"></p>
+                <div class="modal-testimonial-author">
+                    <div class="testimonial-avatar" id="modal-avatar">?</div>
+                    <div>
+                        <div class="testimonial-name" id="modal-author-name">—</div>
+                        <div class="testimonial-role" id="modal-author-role">—</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- ══ SCRIPTS ══ -->
+<script>
+// ── DATA ──────────────────────────────────────────────────────────────────
+const projects = {
+    1: {
+        category: { ru: "ЛЕНДИНГ", en: "LANDING PAGE" },
+        title: "FloraНова",
+        client: { ru: "Студия флористики", en: "Floristry Studio" },
+        price: "₽35 000",
+        timeline: { ru: "10 дней", en: "10 days" },
+        year: "2026",
+        url: "floranova.ru",
+        stars: 5,
+        desc: {
+            ru: "Одностраничный промо-сайт для студии флористики. Адаптивный дизайн с анимированной галереей работ, формой заказа букета и интеграцией с Telegram-каналом. Сайт загружается менее чем за 1 секунду и показывает конверсию ~8%.",
+            en: "A single-page promo site for a floristry studio. Responsive design with an animated portfolio gallery, bouquet order form, and Telegram channel integration. Loads in under 1 second with ~8% conversion rate."
+        },
+        services: { ru: ["Дизайн (Figma)", "Верстка HTML/CSS", "JavaScript-анимации", "Форма заказа", "SEO-оптимизация"], en: ["Design (Figma)", "HTML/CSS Layout", "JavaScript Animations", "Order Form", "SEO Optimization"] },
+        testimonial: {
+            text: { ru: "Максим сделал всё быстро и именно так, как я хотела. Сайт красивый, все соседи-флористы завидуют!", en: "Max delivered everything quickly and exactly as I wanted. The site looks beautiful — all my florist neighbours are jealous!" },
+            name: "Анна Волкова",
+            role: { ru: "Владелец студии FloraНова", en: "Owner, FloraНова Studio" },
+            avatar: "АВ"
+        }
+    },
+    2: {
+        category: { ru: "ИНТЕРНЕТ-МАГАЗИН", en: "E-COMMERCE" },
+        title: "TechBox Store",
+        client: { ru: "Ретейл электроники", en: "Electronics Retail" },
+        price: "₽80 000",
+        timeline: { ru: "3 недели", en: "3 weeks" },
+        year: "2025",
+        url: "techbox-store.ru",
+        stars: 5,
+        desc: {
+            ru: "Полноценный интернет-магазин электроники с каталогом более 500 товаров, корзиной, личным кабинетом покупателя и интеграцией платёжной системы ЮКасса. Backend на Python/FastAPI, PostgreSQL, Redis для кэширования. Среднее время ответа API — 40 мс.",
+            en: "A full-featured electronics store with 500+ SKUs, cart, customer account, and YooKassa payment integration. Python/FastAPI backend, PostgreSQL, Redis caching. Average API response time: 40ms."
+        },
+        services: { ru: ["Backend Python/FastAPI", "Интеграция ЮКасса", "Каталог с фильтрами", "Личный кабинет", "REST API", "Деплой на VPS"], en: ["Python/FastAPI Backend", "YooKassa Integration", "Filtered Catalog", "Customer Account", "REST API", "VPS Deployment"] },
+        testimonial: {
+            text: { ru: "Работает быстро, заказы не теряются. API сделано так, что наш мобильный разработчик подключился без вопросов.", en: "Works fast, no lost orders. The API was so clean our mobile dev integrated it without a single question." },
+            name: "Игорь Петров",
+            role: { ru: "CTO, TechBox Store", en: "CTO, TechBox Store" },
+            avatar: "ИП"
+        }
+    },
+    3: {
+        category: { ru: "SAAS / ДАШБОРД", en: "SAAS / DASHBOARD" },
+        title: "MedCRM",
+        client: { ru: "Частная клиника", en: "Private Clinic" },
+        price: "₽120 000",
+        timeline: { ru: "6 недель", en: "6 weeks" },
+        year: "2025",
+        url: "crm.medclinic42.ru",
+        stars: 5,
+        desc: {
+            ru: "Внутренняя CRM-система для управления расписанием врачей, записью пациентов и историей посещений. React SPA + Python/FastAPI backend с ролевой системой доступа (врач / администратор / владелец). Включает экспорт отчётов в PDF и интеграцию с SMS-уведомлениями.",
+            en: "An internal CRM for managing doctor schedules, patient appointments and visit history. React SPA + Python/FastAPI backend with role-based access (doctor / admin / owner). Includes PDF report export and SMS notification integration."
+        },
+        services: { ru: ["React SPA", "Python/FastAPI", "Ролевая система", "SMS-интеграция", "PDF-отчёты", "PostgreSQL"], en: ["React SPA", "Python/FastAPI", "Role-Based Access", "SMS Integration", "PDF Reports", "PostgreSQL"] },
+        testimonial: {
+            text: { ru: "Система полностью заменила Excel-таблицы. Администраторы довольны, врачи не жалуются — а это уже победа!", en: "The system completely replaced our Excel sheets. Admins are happy, doctors don't complain — that's already a win!" },
+            name: "Дмитрий Козлов",
+            role: { ru: "Главный врач, клиника №42", en: "Chief Physician, Clinic #42" },
+            avatar: "ДК"
+        }
+    },
+    4: {
+        category: { ru: "TELEGRAM-БОТ", en: "TELEGRAM BOT" },
+        title: "BookingBot",
+        client: { ru: "Сеть барбершопов", en: "Barbershop Chain" },
+        price: "₽45 000",
+        timeline: { ru: "2 недели", en: "2 weeks" },
+        year: "2026",
+        url: "t.me/BookingBot_RU",
+        stars: 5,
+        desc: {
+            ru: "Telegram-бот для онлайн-записи в сеть из 4 барбершопов. Бот позволяет выбрать мастера, услугу и удобное время, получить напоминание за 2 часа и отменить запись. Административная панель на отдельном боте для управляющих. Обрабатывает ~200 записей/сутки.",
+            en: "Telegram booking bot for a chain of 4 barbershops. Clients choose barber, service and time slot, receive a 2h reminder, and can cancel. Separate admin bot for managers. Handles ~200 bookings/day."
+        },
+        services: { ru: ["Python + aiogram 3", "Выбор мастера/времени", "SMS/Push-напоминания", "Админ-панель", "SQLite → PostgreSQL", "Деплой"], en: ["Python + aiogram 3", "Barber/Time Selector", "SMS/Push Reminders", "Admin Panel", "SQLite → PostgreSQL", "Deployment"] },
+        testimonial: {
+            text: { ru: "До бота администратор принимал звонки до 23:00. Теперь бот работает за него, а мы спим спокойно.", en: "Before the bot our admin took calls until 11pm. Now the bot handles it and we sleep easy." },
+            name: "Руслан Мамедов",
+            role: { ru: "Владелец сети CutKing", en: "Owner, CutKing Chain" },
+            avatar: "РМ"
+        }
+    },
+    5: {
+        category: { ru: "КОРПОРАТИВНЫЙ САЙТ", en: "CORPORATE SITE" },
+        title: "LegalPro",
+        client: { ru: "Юридическая фирма", en: "Law Firm" },
+        price: "₽55 000",
+        timeline: { ru: "2 недели", en: "2 weeks" },
+        year: "2025",
+        url: "legalpro54.ru",
+        stars: 5,
+        desc: {
+            ru: "Представительский сайт для юридической фирмы. Строгий dark-дизайн в золотом акценте, страницы услуг, команды и кейсов, а также форма первичной консультации с уведомлением в Telegram. Оптимизирован под SEO — фирма вышла в топ-3 по ключевым запросам в течение месяца.",
+            en: "A corporate website for a law firm. Strict dark design with gold accent, service/team/case pages and a free consultation form with Telegram notification. SEO-optimised — the firm reached top-3 for key search queries within a month."
+        },
+        services: { ru: ["Дизайн (Figma)", "HTML/CSS/JS", "SEO-оптимизация", "Форма + Telegram", "Страницы кейсов"], en: ["Design (Figma)", "HTML/CSS/JS", "SEO Optimization", "Form + Telegram", "Case Study Pages"] },
+        testimonial: {
+            text: { ru: "Сайт выглядит дорого и серьёзно. Клиенты говорят, что записались именно потому, что сайт вызвал доверие.", en: "The site looks premium and professional. Clients say they booked because the site inspired trust." },
+            name: "Елена Соколова",
+            role: { ru: "Управляющий партнёр, LegalPro", en: "Managing Partner, LegalPro" },
+            avatar: "ЕС"
+        }
+    },
+    6: {
+        category: { ru: "ИНТЕРНЕТ-МАГАЗИН", en: "E-COMMERCE" },
+        title: "Coffee Ground",
+        client: { ru: "Обжарщик кофе", en: "Coffee Roaster" },
+        price: "₽65 000",
+        timeline: { ru: "3 недели", en: "3 weeks" },
+        year: "2025",
+        url: "coffeeground.ru",
+        stars: 5,
+        desc: {
+            ru: "Интернет-магазин для обжарщика specialty-кофе. Django-магазин с кастомной системой подписок (ежемесячная доставка зёрен), корзиной, личным кабинетом и интеграцией Яндекс.Доставки. Стильный тёплый дизайн с кофейной тематикой. Первый месяц — 85 заказов.",
+            en: "An online store for a specialty coffee roaster. Django shop with a custom subscription system (monthly bean delivery), cart, account, and Yandex Delivery integration. Warm coffee-themed design. First month: 85 orders."
+        },
+        services: { ru: ["Python/Django", "Система подписок", "Яндекс.Доставка API", "Личный кабинет", "Верстка / Дизайн"], en: ["Python/Django", "Subscription System", "Yandex Delivery API", "Customer Account", "Layout / Design"] },
+        testimonial: {
+            text: { ru: "Уже в первый месяц окупил треть стоимости разработки. Максим понял, что нам нужно, с первого разговора.", en: "Recovered a third of the development cost in the first month. Max understood what we needed from the very first call." },
+            name: "Артём Лебедев",
+            role: { ru: "Основатель Coffee Ground", en: "Founder, Coffee Ground" },
+            avatar: "АЛ"
+        }
+    }
+};
+
+// ── LOCALIZATION ───────────────────────────────────────────────────────────
+let currentLang = 'ru';
+const langBtn = document.getElementById('lang-toggle');
+
+function applyLang(lang) {
+    document.querySelectorAll('[data-ru]').forEach(el => {
+        el.textContent = lang === 'ru' ? el.getAttribute('data-ru') : el.getAttribute('data-en');
+    });
+}
+
+if (langBtn) {
+    langBtn.addEventListener('click', () => {
+        currentLang = currentLang === 'ru' ? 'en' : 'ru';
+        langBtn.textContent = currentLang === 'ru' ? 'EN' : 'RU';
+        applyLang(currentLang);
+        // Update back button text
+        document.querySelector('.back-btn').textContent = currentLang === 'ru' ? '← Назад' : '← Back';
+    });
+}
+
+// ── FILTER ─────────────────────────────────────────────────────────────────
+document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.getAttribute('data-filter');
+        document.querySelectorAll('.ref-card').forEach(card => {
+            if (filter === 'all' || card.dataset.category === filter) {
+                card.classList.remove('hidden');
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+    });
+});
+
+// ── MODAL ──────────────────────────────────────────────────────────────────
+function openModal(id) {
+    const p = projects[id];
+    if (!p) return;
+    const L = currentLang;
+
+    document.getElementById('modal-category').textContent = p.category[L];
+    document.getElementById('modal-title').textContent = p.title;
+    document.getElementById('modal-client').textContent = p.client[L];
+    document.getElementById('modal-price').textContent = p.price;
+    document.getElementById('modal-timeline').textContent = p.timeline[L];
+    document.getElementById('modal-year').textContent = p.year;
+    document.getElementById('modal-url').textContent = p.url;
+    document.getElementById('modal-visit-link').href = 'https://' + p.url;
+    document.getElementById('modal-desc').textContent = p.desc[L];
+
+    // Stars
+    const ratingEl = document.getElementById('modal-rating');
+    ratingEl.innerHTML = '★'.repeat(p.stars).split('').map(() => `<span class="star">★</span>`).join('') +
+        '☆'.repeat(5 - p.stars).split('').map(() => `<span style="color:var(--border-color)">★</span>`).join('');
+
+    // Services
+    const servicesEl = document.getElementById('modal-services');
+    servicesEl.innerHTML = p.services[L].map(s => `<span class="modal-service-tag">${s}</span>`).join('');
+
+    // Testimonial
+    const tBox = document.getElementById('modal-testimonial');
+    if (p.testimonial) {
+        tBox.style.display = 'block';
+        document.getElementById('modal-testimonial-text').textContent = `"${p.testimonial.text[L]}"`;
+        document.getElementById('modal-avatar').textContent = p.testimonial.avatar;
+        document.getElementById('modal-author-name').textContent = p.testimonial.name;
+        document.getElementById('modal-author-role').textContent = p.testimonial.role[L];
+        const revStars = document.getElementById('modal-review-stars');
+        revStars.innerHTML = '★'.repeat(p.stars).split('').map(() => `<span class="star">★</span>`).join('');
+    } else {
+        tBox.style.display = 'none';
+    }
+
+    document.getElementById('modal-overlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+
+    if (typeof lucide !== 'undefined') lucide.createIcons();
+}
+
+function closeModal() {
+    document.getElementById('modal-overlay').classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.ref-card').forEach(card => {
+    card.addEventListener('click', () => openModal(card.dataset.id));
+});
+document.getElementById('modal-close').addEventListener('click', closeModal);
+document.getElementById('modal-overlay').addEventListener('click', e => {
+    if (e.target === document.getElementById('modal-overlay')) closeModal();
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+// ── SCROLL ANIMATIONS ──────────────────────────────────────────────────────
+const obs = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+            setTimeout(() => entry.target.classList.add('visible'), i * 80);
+            obs.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.ref-card').forEach(card => obs.observe(card));
+
+// ── DOCK HIDE NEAR FOOTER ──────────────────────────────────────────────────
+(function() {
+    const dock = document.getElementById('dock');
+    const footer = document.querySelector('.site-footer');
+    if (!dock || !footer) return;
+    let hidden = false;
+    function check() {
+        const ftTop = footer.getBoundingClientRect().top;
+        const dh = dock.offsetHeight;
+        const dTop = window.innerHeight - 24 - dh;
+        const shouldHide = ftTop < dTop + dh + 16;
+        if (shouldHide && !hidden) { hidden = true; dock.style.transform = 'translateX(-50%) translateY(calc(100% + 32px))'; dock.style.opacity = '0'; }
+        else if (!shouldHide && hidden) { hidden = false; dock.style.transform = 'translateX(-50%) translateY(0)'; dock.style.opacity = '1'; }
+    }
+    window.addEventListener('scroll', check, { passive: true });
+    window.addEventListener('resize', check, { passive: true });
+    window.addEventListener('load', check);
+})();
+
+// ── ICONS ──────────────────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+    if (typeof lucide !== 'undefined') lucide.createIcons();
+});
+window.addEventListener('load', () => {
+    if (typeof lucide !== 'undefined') lucide.createIcons();
+});
+</script>
+
+</body>
+</html>
